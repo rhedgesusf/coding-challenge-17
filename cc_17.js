@@ -37,3 +37,19 @@ class SalesRep {
         return cl.getTotalSpent();
     }
 }
+
+//////////////////////////////////////
+// Task 3: Create VIPCustomer Class //
+//////////////////////////////////////
+
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+        super(name, email);
+        this.vipLevel = vipLevel;
+    }
+
+    getTotalSpent() {
+        let loyaltyBonus = {"Gold": 1.1, "Platinum": 1.2};
+        return super.getTotalSpent() * loyaltyBonus[this.vipLevel];
+    }
+}
