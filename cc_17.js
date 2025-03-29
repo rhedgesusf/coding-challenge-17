@@ -133,8 +133,16 @@ console.log(`Total Revenue: $${salesRep.getTotalSpent().toFixed(2)}`);
 
 // printout array of customers that have spent minimum of $500
 console.log('');
-console.log(`High-spending customers ($500 min):\n ${JSON.stringify(salesRep.getCustomerMinSpend(500))}`);
+let highSpend = salesRep.getCustomerMinSpend(500);
+console.log(`High-spending customers ($500 min):\n ${JSON.stringify(highSpend)}`);
+highSpend.forEach((item) => {
+    console.log(`Name: ${item.name} Total: $${item.getTotalSpent().toFixed(2)}`);
+});
 
 // printout a summary of customers for sales rep: customer name and total spent
 console.log('');
-console.log("Customer Summary:\n", JSON.stringify(salesRep.getCustomerTotalSpendMap()));
+let custSum = salesRep.getCustomerTotalSpendMap();
+console.log("Customer Summary:\n", JSON.stringify(custSum));
+custSum.forEach((item) => {
+  console.log(`Name: ${item.name} Total: $${item.totalSpent.toFixed(2)}`);
+});
